@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome, {{ user.first_name }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+    <div id="header">
+        <a href="/login"><img src="../static/logo.png" alt="logo"></a>
+        <div class="headerlinks">
+            <nav>
+                <p><a href="/login">{{user.first_name}}'s Profile</a><a href="/logout">Logout</a></p>
+            </nav>
+
+        </div>
+    </div>
+    <div>
+
+
+        <div class="welcome">
+            <h3>Welcome, {{ user.first_name }}! Good to see you again.</h3>
+            <a class="addnew" href="/add_pet">Add Pet</a>
+            <a class="addnew" href="/book_pet_get">Create a New Booking</a>
+        </div>
+            <div class="bookings">
+            <h3>Current Bookings</h3>
+            {% for booking in bookings %}
+            {% if booking.booked_pet.owner.id == request.session.user_id %}
+            {% if pet.id == bookings.booked_pet.id %}
+            <p>{{ booking.booked_pet.pet_name }} is checked for {{ booking.check_in|timesince:booking.check_out }} on {{ booking.check_in }} to {{ booking.check_out }} in a {{ booking.room_type }} room. <a class="cancel" href="/book_cancel/{{ booking.id }}">Cancel Booking</a></p>
+            <p></p>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+        </div>
+
+        <h2 id="yourpets">Your Pets</h2>
+        {% for pet in pets %}
+        {% if pet.owner.id == request.session.user_id %}
+        <div class = "pet_box">
+            <div class="info">
+                <p class="petname">{{ pet.pet_name }}</p>
+                <p class="breed">{{ pet.breed }}</p>
+                <a class="cancel" href="/delete_pet/{{ pet.id }}">Remove Pet</a>
+            </div>
+            <img class="animal" src="../static/{{ pet.animal_type }}.png">
+        </div>
+        {% endif %}
+        {% endfor %}
+
+
+    
+    </div>
+    <div id="footer">
+        <p>Page created by Patrick Llamas</p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a new Friend</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div id="header">
+            <a href="/login"><img src="../static/logo.png" alt="logo"></a>
+            <div class="headerlinks">
+                <nav>
+                    <p><a href="/login">{{ user.first_name }}'s Profile</a><a href="/logout">Logout</a></p>
+                </nav>
+            </div>
+        </div>
+        {% if messages %}
+        <ul class="messages">    
+            {% for message in messages %}    
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <div id="body">
+            <form class="formcontainer" action="/handle_add_pet" method="post">
+                <h2>Add a New Pet</h2>
+                {% csrf_token %}
+                <p>Pet Name:</p>
+                <input type="text" name="pet_name" id="pet_name" placeholder="Pet Name">
+                <br>
+                <input type="radio" name="animal_type" id="cat" value="cat">
+                <label for="cat">Cat</label>
+                <input type="radio" name="animal_type" id="dog" value="dog">
+                <label for="dog">Dog</label>
+
+                <p>Animal Breed:</p>
+                <input type="text" name = "breed" id="breed" placeholder="Breed">
+                
+                <br>
+                <button type="submit">Add Pet</button>
+            </form>
+        </div>
+        <div id="footer">
+            <p>Page created by Patrick Llamas</p>
+        </div>
+    </div>
+</body>
+</html>

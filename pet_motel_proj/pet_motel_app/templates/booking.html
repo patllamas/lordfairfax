@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Booking</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div id="header">
+            <a href="/login"><img src="../static/logo.png" alt="logo"></a>
+            <div class="headerlinks">
+                <nav>
+                    <p><a href="/login">{{user.first_name}}'s Profile</a><a href="/logout">Logout</a></p>
+                </nav>
+    
+            </div>
+        </div>
+        {% if messages %}
+        <ul class="messages">    
+            {% for message in messages %}    
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <form class='formcontainer' action="/book_pet" method="POST">
+            {% csrf_token %}
+
+            <input type="hidden" name="booked_pet" id="booked_pet" value="{{ pets.id }}">
+            <label for="booked_pet">Choose Your Pet:</label>
+            <select name="booked_pet" id="booked_pet">
+                {% for pet in pets %}
+                {% if pet.owner.id == request.session.user_id %}
+                <option value="{{ pet.id }}">{{ pet.pet_name }}</option>
+                {% endif %}
+                {% endfor %}
+            </select>
+            <br>
+            <input type="radio" name="room_type" id="standard" value="Standard">
+            <label for="standard">Standard</label>
+            <input type="radio" name="room_type" id="deluxe" value="Deluxe">
+            <label for="deluxe">Deluxe</label>
+            <input type="radio" name="room_type" id="king" value="King">
+            <label for="king">King</label>
+
+            <p>Check In Date</p>
+            <input type="date" name="check_in" id="check_in">
+            <p>Check Out Date</p>
+            <input type="date" name="check_out" id="check_out">
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="footer">
+            <p>Page created by Patrick Llamas</p>
+        </div>
+    </div>
+</body>
+</html>

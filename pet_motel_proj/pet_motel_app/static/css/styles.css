@@ -1,0 +1,238 @@
+*{
+    /* outline: 1px dotted red; */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #edf0f5;
+}
+
+.container {
+    margin: 0 auto;
+    width: 970px;
+    min-height: 750px;
+    font-family: Helvetica, Arial, sans-serif;
+    color: #000000;
+
+}
+
+.container #header {
+    margin-bottom: 75px;
+    padding: 10px;
+    margin-top:10px;
+    background-color: white;
+}
+
+.new_user{
+    width: 230px;
+    padding: 10px;
+}
+
+.whitebg{
+    background-color: white;
+    padding: 10px;
+}
+
+#header img {
+    height: 100px;
+    width: 100px;
+}
+
+.headerlinks{
+    margin-left: 600px;
+    margin-top: 40px;
+    vertical-align:top;
+    text-align: right;
+    display: inline-block;
+}
+.headerlinks a{
+    margin-right: 10px;
+}
+
+.pet_box{
+    border: 2px solid black;
+    margin-bottom: 10px;
+    margin-left: 50px;
+    padding:20px;
+    display: inline-block;
+    width: 800px;
+    background-color: white;
+}
+
+.pet_box .info{
+    display: inline-block;
+    width: 300px;
+    height: auto;
+    vertical-align: top;
+}
+
+#yourpets {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.pet_box .info p{
+    margin-bottom: 10px;
+}
+
+.pet_box .info a{
+    margin-bottom: 10px;
+    margin-top: 150px;
+}
+
+.pet_box .info .breed {
+    margin-bottom: 75px;
+}
+
+.pet_box img{
+    width: auto;
+    height: 150px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 300px;
+}
+
+
+.petname{
+    font-size: 24px;
+    color: #6a41e9;
+    font-weight: bold;
+}
+
+.messages{
+    color:red;
+    text-align: center;
+    background-color: white;
+    width: 500px;
+    margin: 10px;
+    margin-left: 250px;
+}
+
+#footer{
+    text-align: center;
+    padding-top: 10px;
+    margin-top: 50px;
+    vertical-align: bottom;
+    width:970px;
+    height:80px;
+}
+
+#header img {
+    display: inline-block;
+}
+
+.returning_user {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 45px;
+    margin-left: 450px;
+}
+
+.new_user {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 150px;
+    margin-left: 90px;
+}
+
+.motto {
+    display: inline-block;
+    margin-left: 100px;
+    text-align: center;
+    
+}
+
+#introimg {
+    width: 500px;
+    height:auto;
+}
+
+.bookings {
+    background-color: white;
+    min-height: 100px;
+    border: 2px solid black;
+    padding: 10px;
+}
+
+.bookings p{
+    margin-top: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.bookings h3{
+    margin-bottom:15px;
+}
+
+.welcome{
+    background-color: white;
+    min-height: 70px;
+    border: 2px solid black;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.welcome h3{
+    margin-bottom:15px;
+}
+
+a {
+    text-decoration: none;
+    padding:2px;
+    margin: 5px;
+    color:#4d83e0;
+}
+
+.cancel{
+    background-color: #4d83e0;
+    color: white;
+    font-size: 12px;
+    padding: 5px;
+    margin-left: 0px;
+    margin-top: 5px;
+}
+
+.addnew {
+    color:white;
+    background-color: rgb(83, 83, 223);
+    padding: 5px;
+    margin-top: 5px;
+}
+
+
+.formcontainer{
+    width: 280px;
+    margin-left: 320px;
+    padding: 20px;
+    /* padding-left: 150px; */
+    min-height: 200px;
+    background-color: white;
+    text-align: center;
+}
+
+.formcontainer input{
+    margin-bottom: 10px;
+}
+
+.formcontainer select{
+    margin-bottom: 10px;
+}
+
+.formcontainer h2{
+    padding-top: 10px;
+    padding-bottom: 10px; 
+}
+
+button{
+    color:white;
+    background-color: rgb(83, 83, 223);
+    padding:5px;
+    border-radius: 8px;
+}
+
+#footer{
+    border-top: 2px solid #abbee0;
+    color: #abbee0;
+}

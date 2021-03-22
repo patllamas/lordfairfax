@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Registration</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div id="header">
+            <a href="/login"><img src="../static/logo.png" alt="logo"></a>
+            <div class = "returning_user">
+                <form action="/handle_login" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="email" id="email" placeholder="Email Address">
+                    <input type="password" name = "password" id="password" placeholder="Password">
+                    <button type="submit">Login!</button>
+                </form>
+            </div>
+        </div>
+        {% if messages %}
+        <ul class="messages">
+            <h2>Error!</h2>    
+            {% for message in messages %}    
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+            {% endfor %}
+        </ul>
+        {% endif %}
+    <div class="whitebg">
+        <div class="motto">
+            <img id="introimg" src="../static/intro.jpg" alt="Tina's cat">
+            <h3>Lord Fairfax's Pet Motel</h3>
+        </div>
+
+        <div class = "new_user">
+            <h2>Create an Account</h2>
+            <form action="/register" method="POST">
+                {% csrf_token %}
+                <p>First Name</p>
+                <input type = "text" id="first_name" name = "first_name" placeholder="First Name" autocomplete="off">
+                <p>Last Name</p>
+                <input type = "text" id="last_name" name = "last_name" placeholder="Last Name" autocomplete="off">
+                <p>Email</p>
+                <input type = "text" id="email" name = "email" placeholder="Email Address" autocomplete="off">
+                <p>Password</p>
+                <input type="password" name="password" id="password" placeholder="Password" autocomplete="off">
+                <p>Confirm Password</p>
+                <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" autocomplete="off">
+                <br>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+        <div id="footer">
+            <p>Page created by Patrick Llamas</p>
+        </div>
+    </div>
+</body>
+</html>
